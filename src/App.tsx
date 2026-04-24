@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useScroll, useSpring } from 'framer-motion'
 import { Hero } from './components/Hero'
 import { Poll } from './components/Poll'
 import { Section } from './components/Section'
@@ -10,8 +11,21 @@ import {
 } from './data/presentation'
 
 function App() {
+  const { scrollYProgress } = useScroll()
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 28,
+    restDelta: 0.001,
+  })
+
   return (
     <main>
+      <motion.div
+        className="scroll-progress"
+        style={{ scaleX }}
+        aria-hidden="true"
+      />
+
       <Hero />
 
       <Section
