@@ -1,12 +1,12 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
-import heroImg from '../assets/hero.png'
-import { heroTags } from '../data/presentation'
-import { FloatingCard } from './FloatingCard'
+import { motion, useScroll, useTransform } from "framer-motion";
+import heroImg from "../assets/enedis.png";
+import { heroTags } from "../data/presentation";
+import { FloatingCard } from "./FloatingCard";
 
 export function Hero() {
-  const { scrollYProgress } = useScroll()
-  const imageY = useTransform(scrollYProgress, [0, 0.3], [0, 130])
-  const imageRotate = useTransform(scrollYProgress, [0, 0.3], [0, -8])
+  const { scrollYProgress } = useScroll();
+  const imageY = useTransform(scrollYProgress, [0, 0.3], [0, 130]);
+  const imageRotate = useTransform(scrollYProgress, [0, 0.3], [0, -8]);
 
   return (
     <section className="hero-section" id="hero">
@@ -49,5 +49,5 @@ export function Hero() {
         <span />
       </motion.div>
     </section>
-  )
+  );
 }
